@@ -83,6 +83,8 @@ RUN version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
 RUN curl -sS https://getcomposer.org/installer | \
   php -- --install-dir=/usr/local/bin --filename=composer
 
+RUN composer self-update --1
+
 COPY conf/blackfire.ini $PHP_INI_DIR/conf.d/blackfire.ini
 COPY conf/msmtprc /etc/msmtprc
 COPY conf/php.ini $PHP_INI_DIR
